@@ -37,14 +37,12 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
 			<activity android:name="com.millennialmedia.android.MMActivity"
 			    android:theme="@android:style/Theme.Translucent.NoTitleBar" 
-			    android:configChanges="keyboardHidden|orientation|keyboard" ></activity>
+			    android:configChanges="keyboardHidden|orientation|keyboard"></activity>
           </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
-			<uses-permission android:name="android.permission.RECORD_AUDIO" />
 			<uses-permission android:name="android.permission.INTERNET" />
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-			<uses-feature android:name="android.hardware.microphone" android:required="false" />
           </config-file>
           
         <source-file src="src/android/MMSDK.jar" target-dir="libs" />
