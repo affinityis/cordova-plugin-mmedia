@@ -199,34 +199,54 @@ public class mMediaAdPlugin extends GenericAdPlugin {
                 @Override
                 public void onLoaded(InterstitialAd interstitial) {
                     Log.i(LOGTAG, "Interstitial Ad loaded.");
-                    if (autoShowInterstitial) {
-                        showInterstitial();
-                    }
-                    fireAdEvent(EVENT_AD_LOADED, ADTYPE_INTERSTITIAL);
+                    cordova.getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            if (autoShowInterstitial) {
+                                showInterstitial();
+                            }
+                            fireAdEvent(EVENT_AD_LOADED, ADTYPE_INTERSTITIAL);
+                        }
+                    });
                 }
 
                 @Override
-                public void onLoadFailed(InterstitialAd interstitial, InterstitialAd.InterstitialErrorStatus errorStatus) {
+                public void onLoadFailed(InterstitialAd interstitial, final InterstitialAd.InterstitialErrorStatus errorStatus) {
                     Log.i(LOGTAG, "Interstitial Ad load failed.");
-                    fireAdErrorEvent(EVENT_AD_FAILLOAD, errorStatus.getErrorCode(), errorStatus.getDescription(), ADTYPE_INTERSTITIAL);
+                    cordova.getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            fireAdErrorEvent(EVENT_AD_FAILLOAD, errorStatus.getErrorCode(), errorStatus.getDescription(), ADTYPE_INTERSTITIAL);
+                        }
+                    });
                 }
 
                 @Override
                 public void onShown(InterstitialAd interstitial) {
                     Log.i(LOGTAG, "Interstitial Ad shown.");
-                    fireAdEvent(EVENT_AD_PRESENT, ADTYPE_INTERSTITIAL);
+                    cordova.getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            fireAdEvent(EVENT_AD_PRESENT, ADTYPE_INTERSTITIAL);
+                        }
+                    });
                 }
 
                 @Override
-                public void onShowFailed(InterstitialAd interstitial, InterstitialAd.InterstitialErrorStatus errorStatus) {
+                public void onShowFailed(InterstitialAd interstitial, final InterstitialAd.InterstitialErrorStatus errorStatus) {
                     Log.i(LOGTAG, "Interstitial Ad show failed.");
-                    fireAdErrorEvent(EVENT_AD_FAILLOAD, errorStatus.getErrorCode(), errorStatus.getDescription(), ADTYPE_INTERSTITIAL);
+                    cordova.getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            fireAdErrorEvent(EVENT_AD_FAILLOAD, errorStatus.getErrorCode(), errorStatus.getDescription(), ADTYPE_INTERSTITIAL);
+                        }
+                    });
                 }
 
                 @Override
                 public void onClosed(InterstitialAd interstitial) {
                     Log.i(LOGTAG, "Interstitial Ad closed.");
-                    fireAdEvent(EVENT_AD_DISMISS, ADTYPE_INTERSTITIAL);
+                    cordova.getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            fireAdEvent(EVENT_AD_DISMISS, ADTYPE_INTERSTITIAL);
+                        }
+                    });
                 }
 
                 @Override
@@ -237,13 +257,21 @@ public class mMediaAdPlugin extends GenericAdPlugin {
                 @Override
                 public void onAdLeftApplication(InterstitialAd interstitial) {
                     Log.i(LOGTAG, "Interstitial Ad left application.");
-                    fireAdEvent(EVENT_AD_LEAVEAPP, ADTYPE_INTERSTITIAL);
+                    cordova.getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            fireAdEvent(EVENT_AD_LEAVEAPP, ADTYPE_INTERSTITIAL);
+                        }
+                    });
                 }
 
                 @Override
                 public void onExpired(InterstitialAd interstitial) {
                     Log.i(LOGTAG, "Interstitial Ad expired.");
-                    fireAdErrorEvent(EVENT_AD_FAILLOAD, 0, "Interstitial request expired", ADTYPE_INTERSTITIAL);
+                    cordova.getActivity().runOnUiThread(new Runnable() {
+                        public void run() {
+                            fireAdErrorEvent(EVENT_AD_FAILLOAD, 0, "Interstitial request expired", ADTYPE_INTERSTITIAL);
+                        }
+                    });
                 }
             });
         }
