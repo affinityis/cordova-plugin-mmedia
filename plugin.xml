@@ -56,19 +56,24 @@
         <source-file src="src/android/nmdp_speech_kit.jar" target-dir="libs" />
         <source-file src="src/android/armeabi/libnmsp_speex.so" target-dir="libs/armeabi" />
      </platform>
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="mMedia">
+                <param name="ios-package" value="mMediaAdPlugin" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/mMediaAdPlugin.h"/>
+        <source-file src="src/ios/mMediaAdPlugin.m"/>
 
-     <!-- ios -->
-     <platform name="ios">
-         <config-file target="config.xml" parent="/*">
-             <feature name="mMedia">
-                 <param name="ios-package" value="mMediaAdPlugin" />
-             </feature>
-         </config-file>
-         <header-file src="src/ios/mMediaAdPlugin.h"/>
-         <source-file src="src/ios/mMediaAdPlugin.m"/>
+        <header-file src="src/ios/adapters/Headers/MMFacebookNative.h"/>
 
-         <framework src="src/ios/MillennialMedia.framework" custom="true"/>
-         <framework src="src/ios/SpeechKit.framework" custom="true"/>
+        <framework src="src/ios/MMAdSDK.framework" custom="true"/>
+        <framework src="src/ios/adapters/libMMAdColonyAdapter.a" custom="true"/>
+        <framework src="src/ios/adapters/libMMAdMobAdapter.a" custom="true"/>
+        <framework src="src/ios/adapters/libMMFacebookAdapter.a" custom="true"/>
+        <framework src="src/ios/adapters/libMMiAdAdapter.a" custom="true"/>
+        <framework src="src/ios/adapters/libMMInMobiAdapter.a" custom="true"/>
 
         <framework src="AdSupport.framework"/>
         <framework src="AudioToolbox.framework"/>
