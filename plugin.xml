@@ -39,12 +39,18 @@
             <activity android:name="com.millennialmedia.android.MMActivity"
                 android:theme="@android:style/Theme.Translucent.NoTitleBar"
                 android:configChanges="keyboardHidden|orientation|keyboard"></activity>
-          </config-file>
+        </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="android.permission.INTERNET" />
-            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-          </config-file>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+            <uses-permission android:name="android.permission.NFC"/>
+            <uses-permission android:name="android.permission.BLUETOOTH"/>
+            <uses-permission android:name="android.permission.VIBRATE"/>
+        </config-file>
 
         <source-file src="src/android/MMSDK.jar" target-dir="libs" />
         <source-file src="src/android/nmdp_speech_kit.jar" target-dir="libs" />
