@@ -105,14 +105,17 @@ Read the detailed API Reference Documentation [English](https://github.com/float
 
 ## Android Setup ##
 
-This line must be added to your Application's onCreate method:
+After plugin installation, copy the platforms/android/com.rjfun.cordova.mmedia/mMediaLib/assets/mmadsdk folder into
+platforms/android/assets
+
+This line must be added to your Activity's onCreate method:
 ```java
 import com.millennialmedia.MMSDK;
 ...
 
 @Override
-public void onCreate() {
-    super.onCreate();
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
     MMSDK.initialize(this);
 }
 ```
