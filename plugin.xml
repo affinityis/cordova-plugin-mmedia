@@ -73,20 +73,18 @@
         <framework src="AdSupport.framework"/>
         <framework src="AudioToolbox.framework"/>
         <framework src="AVFoundation.framework"/>
-        <framework src="CFNetwork.framework"/>
+        <framework src="CoreBluetooth.framework"/>
         <framework src="CoreGraphics.framework"/>
         <framework src="CoreLocation.framework"/>
+        <framework src="CoreTelephony.framework"/>
         <framework src="EventKit.framework"/>
-        <framework src="Foundation.framework"/>
+        <framework src="EventKitUI.framework"/>
+        <framework src="libxml2.dylib"/>
         <framework src="MediaPlayer.framework"/>
-        <framework src="MobileCoreServices.framework"/>
+        <framework src="MessageUI.framework"/>
         <framework src="PassKit.framework"/>
-        <framework src="QuartzCore.framework"/>
-        <framework src="Security.framework"/>
-        <framework src="Social.framework"/>
         <framework src="StoreKit.framework"/>
         <framework src="SystemConfiguration.framework"/>
-        <framework src="UIKit.framework"/>
     </platform>
 
 </plugin>
