@@ -34,11 +34,18 @@
 
         <dependency id="com.google.playservices" url="https://github.com/floatinghotpot/google-play-services" commit="r19" />
 
-        <!--config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:name="com.millennialmedia.android.MMActivity"
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <!--activity android:name="com.millennialmedia.android.MMActivity"
                 android:theme="@android:style/Theme.Translucent.NoTitleBar"
-                android:configChanges="keyboardHidden|orientation|keyboard"></activity>
-        </config-file-->
+                android:configChanges="keyboardHidden|orientation|keyboard"></activity-->
+            <activity
+                android:name="com.millennialmedia.internal.MMActivity"
+                android:label="@string/mmadsdk_app_name"
+                android:theme="@style/Theme.MMTransparent" />
+            <activity
+                android:name="com.millennialmedia.internal.MMIntentWrapperActivity"
+                android:label="sdk" />
+        </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
