@@ -1,6 +1,6 @@
 # mMedia (Millennial Media) Plugin Pro #
 
-Present mMedia Ads in Mobile App/Games natively from JavaScript. 
+Present mMedia Ads in Mobile App/Games natively from JavaScript.
 
 Highlights:
 - [x] Easy-to-use APIs. Display Ad with single line of Js code.
@@ -103,6 +103,20 @@ The APIs, Events and Options are detailed documented.
 
 Read the detailed API Reference Documentation [English](https://github.com/floatinghotpot/cordova-plugin-mmedia/wiki).
 
+## Android Setup ##
+
+This line must be added to your Application's onCreate method:
+```java
+import com.millennialmedia.MMSDK;
+...
+
+@Override
+public void onCreate() {
+    super.onCreate();
+    MMSDK.initialize(this);
+}
+```
+
 ## FAQ ##
 
 If encounter problem when using the plugin, please read the [FAQ](https://github.com/floatinghotpot/cordova-plugin-mmedia/wiki/FAQ) first.
@@ -126,7 +140,7 @@ iPhone Banner | iPhone Interstitial
 Ad PluginPro series for the world leading Mobile Ad services:
 
 * [GoogleAds PluginPro](https://github.com/floatinghotpot/cordova-admob-pro), for Google AdMob/DoubleClick.
-* [iAd PluginPro](https://github.com/floatinghotpot/cordova-iad-pro), for Apple iAd. 
+* [iAd PluginPro](https://github.com/floatinghotpot/cordova-iad-pro), for Apple iAd.
 * [FacebookAds PluginPro](https://github.com/floatinghotpot/cordova-plugin-facebookads), for Facebook Audience Network.
 * [FlurryAds PluginPro](https://github.com/floatinghotpot/cordova-plugin-flurry), for Flurry Ads.
 * [mMedia PluginPro](https://github.com/floatinghotpot/cordova-plugin-mmedia), for Millennial Meida.

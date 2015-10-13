@@ -31,14 +31,13 @@
                 <param name="android-package" value="com.rjfun.cordova.mmedia.mMediaAdPlugin"/>
             </feature>
         </config-file>
-        <source-file src="src/android/mMediaAdPlugin.java" target-dir="src/com/rjfun/cordova/mmedia" />
 
         <dependency id="com.google.playservices" url="https://github.com/floatinghotpot/google-play-services" commit="r19" />
 
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+        <!--config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity android:name="com.millennialmedia.android.MMActivity"
                 android:theme="@android:style/Theme.Translucent.NoTitleBar"
-                android:configChanges="keyboardHidden|orientation|keyboard"></activity>
+                android:configChanges="keyboardHidden|orientation|keyboard"></activity-->
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -50,12 +49,16 @@
             <uses-permission android:name="android.permission.NFC"/>
             <uses-permission android:name="android.permission.BLUETOOTH"/>
             <uses-permission android:name="android.permission.VIBRATE"/>
+            <!--uses-permission android:name="android.permission.RECORD_AUDIO"/-->
         </config-file>
 
-        <source-file src="src/android/MMSDK.jar" target-dir="libs" />
-        <source-file src="src/android/nmdp_speech_kit.jar" target-dir="libs" />
-        <source-file src="src/android/armeabi/libnmsp_speex.so" target-dir="libs/armeabi" />
-     </platform>
+        <!-- custom framework -->
+        <framework src="src/android/mMediaLib" custom="true" />
+        <!-- cordova plugin src files -->
+        <source-file src="src/android/mMediaAdPlugin.java" target-dir="src/com/rjfun/cordova/mmedia" />
+
+    </platform>
+
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
